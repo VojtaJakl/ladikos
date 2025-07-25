@@ -228,7 +228,7 @@ header {
   filter: drop-shadow(0 0 16px #33ccffaa);
   position: relative;
   z-index: 2;
-  font-size: 5rem;
+  max-width: 600px;
 }
 
 .hero p {
