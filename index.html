@@ -1,210 +1,322 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <meta name="description" content="Lacio Barbershop Turnov – prémiové pánské střihy a servis ve stylovém prostředí.">
-<meta name="keywords" content="Barbershop Turnov, střihy, vousy, holič, Lacio">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600&display=swap" rel="stylesheet" />
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lacio Barbershop Turnov</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="burger" id="burger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-  <nav class="navbar" id="navbar">
-  <img src="images/logo3.png" alt="Logo Lacio Barbershop" class="nav-logo" />
-  <ul>
-    <li><a href="#hero">Domů</a></li>
-    <li><a href="#why-us">Proč my</a></li>
-    <li><a href="#sluzby">Služby</a></li>
-    <li><a href="#galerie">Galerie</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
-  </ul>
-</nav>
-  <div id="loader">
-  <div class="spinner"></div>
-</div>
-
-  <header class="hero" id="hero" style="background-image: url('images/uvod1_very_dark.jpeg');">
-    <div class="overlay">
-      <img src="images/logo4.png" alt="Lacio Barbershop Logo" class="logo"/>
-      <h1 class="hero-title">Lacio Barbershop </h1>
-     <div class="cta-wrapper">
-  <img src="images/malejladik.png" alt="šipka dolů" class="cta-arrow" />
-  <br>
-  
- 
-</div>
-      <a href="#kontakt" class="btn-primary">Objednat se</a>
-    </div>
-  </header>
-
-  <section class="o-nas">
-    <p>V Lacio Barbershop věříme, že návštěva holičství má být víc než jen stříhání vlasů. Je to chvíle, kdy si můžete odpočinout, dopřát si profesionální péči a odejít s perfektním střihem, který podtrhne váš styl.</p>
-  </section>
-<section id="why-us" class="why-us-section">
-  <div class="container">
-    <h2 class="neon-text">Proč právě my?</h2>
-    <div class="reasons-grid">
-      <div class="reason-card" data-aos="fade-up">
-        <span class="emoji">💇‍♂️</span>
-        <h3>Kvalita střihu</h3>
-        <p>Profesionální péče, která ti sedne na milimetr.</p>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="100">
-        <span class="emoji">💆🏻‍♂️</span>
-        <h3>Prémiový servis</h3>
-        <p>Relax u stříhání? U nás samozřejmost.</p>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="200">
-        <span class="emoji">😊</span>
-        <h3>Lidský přístup</h3>
-        <p>U nás nejdeš jen na stříhání, ale i pokecat.</p>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="300">
-        <span class="emoji">🎵</span>
-        <h3>Atmosféra & vibe</h3>
-        <p>Hudba, styl, vibe — prostě místo, kde chceš být.</p>
-      </div>
-      <div class="reason-card" data-aos="fade-up" data-aos-delay="400">
-  <span class="emoji">🧼</span>
-  <h3>Čistota & hygiena</h3>
-  <p>Dbáme na čisté nástroje i prostředí. U nás se cítíš bezpečně.</p>
-</div>
-<div class="reason-card" data-aos="fade-up" data-aos-delay="500">
-  <span class="emoji">📍</span>
-  <h3>Skvělá lokalita</h3>
-  <p>Náš barbershop najdeš přímo v centru Turnova – bez zbytečných zajížděk.</p>
-</div>
-    </div>
-  </div>
-</section>
-
-  <section class="sluzby" id="sluzby">
-    <h2>Služby</h2>
-    <ul>
-      <li><strong>Klasický střih (šukar bala)</strong> – 390 Kč<br><small>Střih, úprava kontur, úprava obočí, mytí, styling, kolínská</small></li>
-      <li><strong>Skin fade</strong> – 420 Kč<br><small>Střih od nuly, úprava kontur, úprava obočí, mytí, styling, kolínská</small></li>
-      <li><strong>Pánské combo (baro frajeris)</strong> – 650 Kč<br><small>Střih, úprava vousů, napaření vousů, úprava obočí, mytí, styling, kolínská</small></li>
-      <li><strong>Dětský střih (cikno frajeris)</strong> – 300 Kč<br><small>Střih, vyholení libovolných vzorů, úprava kontur, mytí, styling</small></li>
-      <li><strong>Úprava vousů</strong> – 300 Kč<br><small>Zkrácení a upravení tvaru vousů, kontury, napaření, břitva, kolínská</small></li>
-      <li><strong>Lacio Full service (super frajeris)</strong> – 900 Kč<br><small>Komplet + trhání chloupků z nosu a uší, peeling, černá maska, masáž</small></li>
-      <li><em>Doplňky:</em><br>
-        ▫️ Barvení vousů – 150 Kč<br>
-        ▫️ Vosk do nosu – 50 Kč<br>
-        ▫️ Vosk do uší – 50 Kč<br>
-        ▫️ Černá maska – 100 Kč
-      </li>
-      <li>🍹 Ke každé službě libovolný nápoj zdarma</li>
+<header>
+  <nav class="nav-container container">
+    <a href="#" class="logo-link">
+      <img src="images/logo4.png" alt="Lacio Barbershop Logo" class="logo">
+    </a>
+    <ul class="nav-list">
+      <li><a href="#about">O nás</a></li>
+      <li><a href="#services">Služby a ceník</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact">Kontakt</a></li>
     </ul>
-  </section>
+    <button class="nav-toggle" aria-label="Otevřít menu">
+      <span class="hamburger"></span>
+    </button>
+  </nav>
+</header>
 
-  <section class="galerie" id="galerie">
-    <h2>Galerie</h2>
-    <div class="galerie-grid">
-      <img src="images/vnitrek.jpeg" alt="Interiér" />
-      <img src="images/vnitrek1.jpeg" alt="Interiér" />
-      <img src="images/vnitrek2.jpeg" alt="Interiér" />
-      <img src="images/cut1.jpeg" alt="Střih" />
-      <img src="images/cut2.jpeg" alt="Střih" />
-      <img src="images/cut3.jpeg" alt="Střih" />
-      <img src="images/cut4.jpeg" alt="Střih" />
-      <img src="images/cut5.jpeg" alt="Střih" />
+<section class="hero">
+  <div class="container hero-content">
+    <img src="images/logo-text1.png" alt="Lacio Barbershop" class="hero-logo" />
+    <p id="dynamic-slogan">Tvůj styl. Naše vášeň.</p>
+    <a href="#contact" class="btn-primary" data-text="Objednat se">Fresh Cut Zde</a>
+
+    <div class="hero-socials">
+      <a href="https://www.instagram.com/lacio_barbershop_turnov" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span data-lucide="instagram" class="hero-icon"></span>
+      </a>
+      <a href="https://www.facebook.com/share/19hwwwGRaU/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <span data-lucide="facebook" class="hero-icon"></span>
+      </a>
+      <a href="tel:+420731270724" aria-label="Zavolat">
+        <span data-lucide="phone" class="hero-icon"></span>
+      </a>
     </div>
-  </section>
-
- <section class="instagram-section">
-  <span class="instagram-text">Sleduj nás na Instagramu</span>
-  <a href="https://www.instagram.com/lacio_barbershop_turnov" target="_blank" class="instagram-link" rel="noopener noreferrer">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="instagram-icon" />
-  </a>
-</section>
-
-  <section class="recenze">
-  <h2>Co říkají naši zákazníci</h2>
-  <div class="recenze-grid">
-    <article class="recenze-item">
-      <p>„Perfektní servis a velmi přátelský přístup, cítil jsem se v barber shopu velmi dobře a ještě navíc jsem z něj vyšel jako fešák, určitě můžu doporučit ! Díky, vrátím se.“</p>
-      <h4>- Tomáš Horňák</h4>
-    </article>
-    <article class="recenze-item">
-      <p>„Barber má skvělý přátelský přístup, také super prostory a atmosféru. Chodím opakovaně a vždy odcházím víc než spokojený.👌🏼“</p>
-      <h4>- Tomáš Janů</h4>
-    </article>
-    <article class="recenze-item">
-      <p>„Parádní přístup kvalita cena bez konkurence, v Turnově lepšího Barbera neseženete !“</p>
-      <h4>- Jan Vojta</h4>
-    </article>
   </div>
 </section>
 
-  <section class="kontakt" id="kontakt">
-  <h2>Kontakt</h2>
-    <p>📍 Jiráskova 133, 51101 Turnov</p>
-    <p>📞 <a href="tel:+420731270724">+420 731 270 724</a></p>
-    <p>📸 <a href="https://www.instagram.com/lacio_barbershop_turnov" target="_blank">Instagram</a></p>
-    <p>🕒 Po–Pá 9:00–19:00, So dle dohody</p>
-    <p>💼 Zodpovědná osoba: Ladislav Janičo | IČO: 19615281 </p>
-  </section>
 
-  <section class="mapa">
-    <h2>Kde nás najdete</h2>
-    <iframe src="https://www.google.com/maps?q=Jiráskova+133,+Turnov&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </section>
+<section id="about" class="about">
+  <div class="container">
 
-<footer class="footer">
-  <p>Since 2024 | Powered by VTZ</p>
+    <div class="about-header">
+      <i data-lucide="scissors"></i>
+      <h2>O nás</h2>
+    </div>
+
+    <div class="about-content">
+      <p>
+        V <strong>Lacio Barbershop</strong> věříme, že návštěva holičství má být víc než jen stříhání vlasů.
+        Je to chvíle, kdy si můžete odpočinout, dopřát si profesionální péči a odejít s perfektním střihem,
+        který podtrhne váš styl.
+      </p>
+      <p>
+        Klasika, fade, skinfade, vousy, kontura nebo komplet fresh look — víme, co děláme,
+        a děláme to poctivě. Žádné kompromisy, jen precizní práce, kterou cítíš, jakmile vstaneš z křesla.
+      </p>
+      <p>
+        U nás nejdeš na “rychlý sestřih”. U nás si dáš chill, styl a péči, co má koule.
+        Whiskey, kafe, dobrej beat a střih, co sedí. <strong>To je Lacio.</strong>
+      </p>
+      <p>
+        <strong>Tak se objednej. A vypadni jako frajer.</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- -->
+<section id="reviews" class="reviews">
+  <div class="container">
+    <div class="about-header">  
+      <i data-lucide="message-circle"></i>   
+      <h2>Recenze</h2>
+    </div>
+
+    <div class="review-grid">
+      <div class="review">
+        <p>„Perfektní servis a velmi přátelský přístup, cítil jsem se v barber shopu velmi dobře a ještě navíc jsem z něj vyšel jako fešák, určitě můžu doporučit ! Díky, vrátím se.“</p>
+        <span>- Tomáš Horňák</span>
+      </div>
+      <div class="review">
+        <p>„Barber má skvělý přátelský přístup, také super prostory a atmosféru. Chodím opakovaně a vždy odcházím víc než spokojený.👌🏼“</p>
+        <span>- Tomáš Janů</span>
+      </div>
+      <div class="review">
+        <p>„Parádní přístup kvalita cena bez konkurence, v Turnově lepšího Barbera neseženete !“</p>
+        <span>- Jan Vojta</span>
+      </div>
+    </div>
+
+    <div class="reviews-more">
+  Více recenzí najdete na&nbsp;
+  <a href="https://g.co/kgs/BpjZGGo" target="_blank" rel="noopener noreferrer" class="google-link">
+    Google <i data-lucide="external-link"></i>
+  </a>
+</div>
+  </div>
+</section>
+
+
+  
+<section id="services" class="services">
+  
+  <div class="container">
+    <div class="services-header">
+  <i data-lucide="wallet-cards"></i>
+      <h2>Služby</h2>
+    </div>
+    <div class="services-box">
+
+      <ul class="services-list">
+        <li>
+          <div class="service-title">
+            <strong>Klasický střih (šukar bala)</strong>
+            <span class="price">390 Kč</span>
+          </div>
+          <p>Střih, úprava kontur, úprava obočí, mytí, styling, kolínská</p>
+        </li>
+        <li>
+          <div class="service-title">
+            <strong>Skin fade</strong>
+            <span class="price">420 Kč</span>
+          </div>
+          <p>Střih od nuly, úprava kontur, úprava obočí, mytí, styling, kolínská</p>
+        </li>
+        <li>
+          <div class="service-title">
+            <strong>Pánské combo (baro frajeris)</strong>
+            <span class="price">650 Kč</span>
+          </div>
+          <p>Střih, úprava vousů, napaření vousů, úprava obočí, mytí, styling, kolínská</p>
+        </li>
+        <li>
+          <div class="service-title">
+            <strong>Dětský střih (cikno frajeris)</strong>
+            <span class="price">300 Kč</span>
+          </div>
+          <p>Střih, vyholení libovolných vzorů, úprava kontur, mytí, styling</p>
+        </li>
+        <li>
+          <div class="service-title">
+            <strong>Úprava vousů</strong>
+            <span class="price">300 Kč</span>
+          </div>
+          <p>Zkrácení a upravení tvaru vousů, kontury, napaření, břitva, kolínská</p>
+        </li>
+        <li>
+          <div class="service-title">
+            <strong>Lacio Full service (super frajeris)</strong>
+            <span class="price">900 Kč</span>
+          </div>
+          <p>Komplet + trhání chloupků z nosu a uší, peeling, černá maska, masáž</p>
+        </li>
+      </ul>
+
+      <p class="addon-title"><strong>Doplňky:</strong></p>
+      <ul class="services-list">
+        <li>
+          <div class="service-title">
+            Barvení vousů
+            <span class="price">150 Kč</span>
+          </div>
+        </li>
+        <li>
+          <div class="service-title">
+            Vosk do nosu
+            <span class="price">50 Kč</span>
+          </div>
+        </li>
+        <li>
+          <div class="service-title">
+            Vosk do uší
+            <span class="price">50 Kč</span>
+          </div>
+        </li>
+        <li>
+          <div class="service-title">
+            Černá maska
+            <span class="price">100 Kč</span>
+          </div>
+        </li>
+      </ul>
+
+      <p class="services-note">
+  <i data-lucide="cup-soda" class="services-note-icon"></i>
+  Ke každé službě libovolný nápoj zdarma.
+</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="gallery" class="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <i data-lucide="image"></i>
+      <h2>Galerie</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="images/cut1.jpeg" alt="Střih 1" data-full="images/cut1.jpeg" />
+      <img src="images/cut2.jpeg" alt="Střih 2" data-full="images/cut2.jpeg" />
+      <img src="images/cut3.jpeg" alt="Střih 3" data-full="images/cut3.jpeg" />
+      <img src="images/cut4.jpeg" alt="Střih 4" data-full="images/cut4.jpeg" />
+      <img src="images/cut5.jpeg" alt="Střih 5" data-full="images/cut5.jpeg" />
+      <img src="images/vnitrek.jpeg" alt="Interiér 1" data-full="images/vnitrek.jpeg" />
+      <img src="images/vnitrek1.jpeg" alt="Interiér 2" data-full="images/vnitrek1.jpeg" />
+      <img src="images/vnitrek2.jpeg" alt="Interiér 3" data-full="images/vnitrek2.jpeg" />
+    </div>
+
+    <p class="gallery-info">
+      Více fotek najdeš na našem <a href="https://www.instagram.com/lacio_barbershop_turnov" target="_blank">@instagramu</a>
+    </p>
+  </div>
+</section>
+
+
+<div id="lightbox" class="lightbox hidden">
+  <span id="lightboxClose" class="lightbox-close" data-lucide="x"></span>
+  <span id="lightboxPrev" class="lightbox-nav left" data-lucide="chevron-left"></span>
+  <img id="lightboxImg" src="" alt="Zvětšený obrázek" />
+  <span id="lightboxNext" class="lightbox-nav right" data-lucide="chevron-right"></span>
+</div>
+
+
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-header">
+      <i data-lucide="phone"></i>
+      <h2>Kontakt</h2>
+    </div>
+    <div class="contact-card">
+      <div class="contact-row">
+        <i data-lucide="map-pin"></i>
+        <p><strong>Adresa:</strong> Jiráskova 133, 51101 Turnov</p>
+      </div>
+      <div class="contact-row">
+        <i data-lucide="phone"></i>
+        <p><strong>Telefon:</strong> <a href="tel:+420731270724">+420 731 270 724</a></p>
+      </div>
+      <div class="contact-row">
+        <i data-lucide="user"></i>
+        <p><strong>Osoba:</strong> Ladislav Janičo<br><strong>IČO:</strong> 19615281</p>
+      </div>
+      <div class="contact-row">
+        <i data-lucide="clock"></i>
+        <p><strong>Otevírací doba:</strong><br>Po–Pá: 9:00–19:00<br>So: dle dohody<br>Ne: zavřeno</p>
+      </div>
+
+     <div class="contact-row is-open-row" aria-live="polite" role="status" style="margin-top: 10px;">
+  <strong>Právě je:</strong>
+  <i data-lucide="circle" style="margin: 0 8px;"></i>
+  <span id="open-status">Načítám...</span>
+</div>
+
+    <div class="contact-map" style="margin-top: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 0 40px rgba(51,204,255,0.25);">
+      <iframe
+        src="https://www.google.com/maps?q=Jiráskova+133,+51101+Turnov&hl=cs&z=15&output=embed"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa Lacio Barbershop">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container footer-container">
+    <div class="footer-logo">
+      <img src="images/logo4.png" alt="Lacio Barbershop Logo" />
+    </div>
+    <p>© 2025 Lacio Barbershop | Všechna práva vyhrazena<br>
+       Designed by <a href="https://www.instagram.com/vtzcreator?igsh=NmhxNHE3bGVhenh3&utm_-source=qr" target="_blank" rel="noopener noreferrer" class="footer-credit">VTZ</a>
+    </p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/lacio_barbershop_turnov" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i data-lucide="instagram"></i> Instagram
+      </a>
+      <a href="tel:+420731270724" aria-label="Telefonní číslo">
+        <i data-lucide="phone"></i> +420 731 270 724
+      </a>
+    </div>
+  </div>
 </footer>
 
-<script>
-  const sections = document.querySelectorAll('section');
-  window.addEventListener('scroll', () => {
-    const triggerBottom = window.innerHeight / 5 * 4;
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if(sectionTop < triggerBottom) {
-        section.classList.add('show');
-      } else {
-        section.classList.remove('show');
-      }
-    });
-  });
 
-  window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.display = 'none';
-    }
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    lucide.createIcons(); 
   });
 </script>
-<script>
-  window.addEventListener("load", () => {
-    document.getElementById("loader").classList.add("fade-out");
-  });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
-  const burger = document.getElementById('burger');
-const navbar = document.getElementById('navbar');
 
-burger.addEventListener('click', () => {
-  burger.classList.toggle('active');
-  navbar.classList.toggle('active');
-});
-</script>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
 <script src="scripts/main.js"></script>
 </body>
 </html>
