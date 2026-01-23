@@ -49,6 +49,32 @@ function typeSlogan() {
 
 function eraseSlogan(){
   if(charIndex > 0){
+    sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
+    charIndex--;
+    setTimeout(eraseSlogan, erasingSpeed);
+  } else {
+    
+    sloganEl.classList.add('fade-out');
+    setTimeout(()=>{
+      currentIndex = (currentIndex + 1) % slogans.length;
+      charIndex = 0; 
+      sloganEl.classList.remove('fade-out');
+      sloganEl.textContent = ''; 
+      typeSlogan(); 
+    }, 500);
+  }
+}
+
+// START
+if(sloganEl){
+  sloganEl.textContent = '';
+  charIndex = 0;
+  currentIndex = 0;
+  typeSlogan();
+}
+
+function eraseSlogan(){
+  if(charIndex > 0){
     sloganEl.textContent = slogans[currentIndex].substring(0, charIndex); // <--- fix
     charIndex--;
     setTimeout(eraseSlogan, erasingSpeed);
@@ -260,6 +286,7 @@ if(sloganEl){
   }
 
 });
+
 
 
 
