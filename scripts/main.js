@@ -30,53 +30,50 @@ const slogans = [
   "Není to jen o vlasech.",
   "Vždy o krok napřed."
 ];
+
 const sloganEl = document.getElementById('dynamic-slogan');
 let currentIndex = 0;
 let charIndex = 0;
-const typingSpeed = 100;  
-const erasingSpeed = 50;  
-const pauseAfterTyping = 2000;  
+const typingSpeed = 150;  // pomalejší pro stabilitu
+const erasingSpeed = 100;
+const pauseAfterTyping = 2000;
 
-function typeSlogan() {
-  // bezpečnostní kontrola
-  if(!sloganEl) return;
+if(sloganEl && !window.sloganTypingStarted){
+  window.sloganTypingStarted = true;
 
-  if(charIndex === 0) sloganEl.textContent = ''; // vždy čistíme na začátku
-  if(charIndex < slogans[currentIndex].length){
-    sloganEl.textContent += slogans[currentIndex][charIndex];
-    charIndex++;
-    setTimeout(typeSlogan, typingSpeed);
-  } else {
-    setTimeout(eraseSlogan, pauseAfterTyping);
+  function typeSlogan(){
+    if(charIndex < slogans[currentIndex].length){
+      sloganEl.textContent += slogans[currentIndex][charIndex];
+      charIndex++;
+      setTimeout(typeSlogan, typingSpeed);
+    } else {
+      setTimeout(eraseSlogan, pauseAfterTyping);
+    }
   }
-}
 
-function eraseSlogan(){
-  if(!sloganEl) return;
-
-  if(charIndex > 0){
-    charIndex--;
-    sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
-    setTimeout(eraseSlogan, erasingSpeed);
-  } else {
-    // fade-out jen vizuálně
-    sloganEl.classList.add('fade-out');
-    setTimeout(()=>{
-      sloganEl.classList.remove('fade-out');
-      currentIndex = (currentIndex + 1) % slogans.length;
-      charIndex = 0; // reset indexu před startem dalšího sloganu
-      typeSlogan();
-    }, 500);
+  function eraseSlogan(){
+    if(charIndex > 0){
+      charIndex--;
+      sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
+      setTimeout(eraseSlogan, erasingSpeed);
+    } else {
+      // fade-out efekt
+      sloganEl.style.opacity = 0;
+      setTimeout(()=>{
+        currentIndex = (currentIndex + 1) % slogans.length;
+        charIndex = 0;
+        sloganEl.textContent = '';
+        sloganEl.style.opacity = 1; // fade-in
+        typeSlogan();
+      }, 300); // krátké pauza mezi slogany
+    }
   }
-}
 
-// START
-if(sloganEl){
-  charIndex = 0;
-  currentIndex = 0;
+  // START
+  sloganEl.style.transition = 'opacity 0.3s';
+  sloganEl.style.opacity = 1;
   typeSlogan();
 }
-
 
   
   const galleryImages = document.querySelectorAll('.gallery-grid img');
@@ -267,6 +264,7 @@ if(sloganEl){
   }
 
 });
+
 
 
 
