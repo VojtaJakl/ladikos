@@ -202,6 +202,11 @@
 </p>
     </div>
   </div>
+   <div class="hair-tip-trigger">
+  <button id="openGuide">
+    Nevíš co si vybrat? 👉 Klikni pro rychlej tip
+  </button>
+</div>
 </section>
 
 
@@ -315,6 +320,55 @@
 
 
 <script src="scripts/main.js"></script>
+  <div id="hairGuideModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h2>Rychlej tip na střih</h2>
+    <p class="micro-text">Zabere to max 10 vteřin</p>
+
+    <div class="progress">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div id="guide">
+
+      
+      <div class="step active" data-step="1">
+        <p>Jaký máš tvar obličeje?</p>
+        <button data-answer="kulaty"><i data-lucide="smile" class="icon"></i> Kulatý</button>
+        <button data-answer="hranaty"><i data-lucide="square" class="icon"></i> Hranatý</button>
+        <button data-answer="ovalny"><i data-lucide="circle" class="icon"></i> Oválný</button>
+      </div>
+
+      
+     <div class="step" data-step="2">
+  <p>Vousy nosíš spíš:</p>
+  <button data-answer="zadne"><i data-lucide="slash" class="icon"></i> Žádné</button>
+  <button data-answer="kratke"><i data-lucide="scissors" class="icon"></i> Krátké</button>
+  <button data-answer="plne"><i data-lucide="layers" class="icon"></i> Plné</button>
+</div>
+
+      
+      <div class="step" data-step="3">
+        <p>Styl, který chceš:</p>
+        <button data-answer="clean"><i data-lucide="check" class="icon"></i> Clean</button>
+        <button data-answer="street"><i data-lucide="zap" class="icon"></i> Street</button>
+        <button data-answer="classic"><i data-lucide="award" class="icon"></i> Classic</button>
+      </div>
+
+      
+      <div class="step result" data-step="4">
+        <h3>Doporučujeme:</h3>
+        <p id="result-text"></p>
+        <div id="order-box"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
 <script src="scripts/main.js"></script>
