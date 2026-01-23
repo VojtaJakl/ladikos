@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== NAVIGATION =====
+  
   const toggle = document.querySelector(".nav-toggle");
   const navList = document.querySelector(".nav-list");
   const nav = document.querySelector("nav");
@@ -24,50 +24,54 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 
-  // ===== SLOGAN TYPING =====
-  const slogans = [
-    "Tvůj styl. Naše vášeň.",
-    "Není to jen o vlasech.",
-    "Vždy o krok napřed."
-  ];
-  const sloganEl = document.getElementById('dynamic-slogan');
-  let currentIndex = 0;
-  let charIndex = 0;
-  const typingSpeed = 100;  
-  const erasingSpeed = 50;  
-  const pauseAfterTyping = 2000;  
+  
+const slogans = [
+  "Tvůj styl. Naše vášeň.",
+  "Není to jen o vlasech.",
+  "Vždy o krok napřed."
+];
+const sloganEl = document.getElementById('dynamic-slogan');
+let currentIndex = 0;
+let charIndex = 0;
+const typingSpeed = 100;  
+const erasingSpeed = 50;  
+const pauseAfterTyping = 2000;  
 
-  function typeSlogan() {
-    if(charIndex < slogans[currentIndex].length){
-      sloganEl.textContent += slogans[currentIndex].charAt(charIndex);
-      charIndex++;
-      setTimeout(typeSlogan, typingSpeed);
-    } else {
-      setTimeout(eraseSlogan, pauseAfterTyping);
-    }
+function typeSlogan() {
+  if(charIndex < slogans[currentIndex].length){
+    sloganEl.textContent += slogans[currentIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeSlogan, typingSpeed);
+  } else {
+    setTimeout(eraseSlogan, pauseAfterTyping);
   }
+}
 
-  function eraseSlogan(){
-    if(charIndex > 0){
-      sloganEl.textContent = slogans[currentIndex].substring(0, charIndex-1);
-      charIndex--;
-      setTimeout(eraseSlogan, erasingSpeed);
-    } else {
-      sloganEl.classList.add('fade-out');
-      setTimeout(()=>{
-        currentIndex = (currentIndex + 1) % slogans.length;
-        sloganEl.classList.remove('fade-out');
-        setTimeout(typeSlogan, 300);
-      }, 500);
-    }
+function eraseSlogan(){
+  if(charIndex > 0){
+    sloganEl.textContent = slogans[currentIndex].substring(0, charIndex); // <--- fix
+    charIndex--;
+    setTimeout(eraseSlogan, erasingSpeed);
+  } else {
+    sloganEl.classList.add('fade-out');
+    setTimeout(()=>{
+      currentIndex = (currentIndex + 1) % slogans.length;
+      sloganEl.classList.remove('fade-out');
+      charIndex = 0; // reset charIndex
+      setTimeout(typeSlogan, 300);
+    }, 500);
   }
+}
 
-  if(sloganEl){
-    sloganEl.textContent = '';
-    typeSlogan();
-  }
+if(sloganEl){
+  sloganEl.textContent = '';
+  charIndex = 0;
+  currentIndex = 0;
+  typeSlogan();
+}
 
-  // ===== GALLERY LIGHTBOX =====
+
+  
   const galleryImages = document.querySelectorAll('.gallery-grid img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -124,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(e.key==='ArrowRight') lightboxNext.click();
   });
 
-  // ===== OPEN STATUS =====
+ 
   function checkOpenStatus() {
     const statusEl = document.getElementById('open-status');
     const iconEl = document.querySelector('.is-open-row i');
@@ -152,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
-  // ===== HAIR GUIDE MODAL =====
+  
   const modal = document.getElementById('hairGuideModal');
   const openBtn = document.getElementById('openGuide');
   const closeBtn = modal ? modal.querySelector('.close') : null;
@@ -256,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
