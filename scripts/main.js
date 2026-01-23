@@ -35,14 +35,19 @@ const sloganEl = document.getElementById('dynamic-slogan');
 let currentIndex = 0;
 let charIndex = 0;
 const typingSpeed = 100;  
-const erasingSpeed = 70;
-const pauseAfterTyping = 2000;
+const erasingSpeed = 70;  
+const pauseAfterTyping = 2000;  
 
-if(sloganEl && !window.sloganTypingStarted){
+if (sloganEl && !window.sloganTypingStarted) {
   window.sloganTypingStarted = true;
 
-  function typeSlogan(){
-    if(charIndex < slogans[currentIndex].length){
+  // zajistí čistý start
+  sloganEl.textContent = '';
+  sloganEl.style.transition = 'opacity 0.3s';
+  sloganEl.style.opacity = 1;
+
+  function typeSlogan() {
+    if (charIndex < slogans[currentIndex].length) {
       sloganEl.textContent += slogans[currentIndex][charIndex];
       charIndex++;
       setTimeout(typeSlogan, typingSpeed);
@@ -51,29 +56,29 @@ if(sloganEl && !window.sloganTypingStarted){
     }
   }
 
-  function eraseSlogan(){
-    if(charIndex > 0){
+  function eraseSlogan() {
+    if (charIndex > 0) {
       charIndex--;
       sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
       setTimeout(eraseSlogan, erasingSpeed);
     } else {
-      // fade-out efekt
+      
       sloganEl.style.opacity = 0;
-      setTimeout(()=>{
+      setTimeout(() => {
+        
         currentIndex = (currentIndex + 1) % slogans.length;
         charIndex = 0;
         sloganEl.textContent = '';
-        sloganEl.style.opacity = 1; // fade-in
+        sloganEl.style.opacity = 1; 
         typeSlogan();
       }, 300); 
     }
   }
 
   // START
-  sloganEl.style.transition = 'opacity 0.3s';
-  sloganEl.style.opacity = 1;
   typeSlogan();
 }
+
 
   
   const galleryImages = document.querySelectorAll('.gallery-grid img');
@@ -264,6 +269,7 @@ if(sloganEl && !window.sloganTypingStarted){
   }
 
 });
+
 
 
 
