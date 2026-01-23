@@ -34,8 +34,8 @@ const slogans = [
 const sloganEl = document.getElementById('dynamic-slogan');
 let currentIndex = 0;
 let charIndex = 0;
-const typingSpeed = 150;  // pomalejší pro stabilitu
-const erasingSpeed = 100;
+const typingSpeed = 100;  
+const erasingSpeed = 70;
 const pauseAfterTyping = 2000;
 
 if(sloganEl && !window.sloganTypingStarted){
@@ -65,7 +65,7 @@ if(sloganEl && !window.sloganTypingStarted){
         sloganEl.textContent = '';
         sloganEl.style.opacity = 1; // fade-in
         typeSlogan();
-      }, 300); // krátké pauza mezi slogany
+      }, 300); 
     }
   }
 
@@ -264,6 +264,7 @@ if(sloganEl && !window.sloganTypingStarted){
   }
 
 });
+
 
 
 
