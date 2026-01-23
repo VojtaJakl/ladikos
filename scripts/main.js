@@ -203,3 +203,117 @@ function createSnowflake() {
 
 
 setInterval(createSnowflake, 150);
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const modal = document.getElementById('hairGuideModal');
+  const openBtn = document.getElementById('openGuide');
+  const closeBtn = modal ? modal.querySelector('.close') : null;
+
+  if (!modal || !openBtn || !closeBtn) return;
+
+  const PHONE_NUMBER = '+420731270724'; 
+
+  openBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    resetGuide();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', e => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  const answers = { oblicej:null, vousy:null, styl:null };
+  const steps = modal.querySelectorAll('.step');
+  const buttons = modal.querySelectorAll('.step button');
+  const resultText = document.getElementById('result-text');
+  let currentStep = 1;
+
+  const services = {
+    classic: { name:'Klasický střih (šukar bala)', desc:'Čistý klasický střih se vším všudy' },
+    skinfade: { name:'Skin fade', desc:'Střih od nuly, moderní a výrazný' },
+    combo: { name:'Pánské combo (baro frajeris)', desc:'Vlasy + vousy, komplet servis' },
+    full: { name:'Lacio Full service (super frajeris)', desc:'Kompletní péče bez kompromisů' },
+    beard: { name:'Úprava vousů', desc:'Samostatná úprava vousů' }
+  };
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const a = btn.dataset.answer;
+      if (!a) return;
+
+      if (currentStep === 1) answers.oblicej = a;
+      if (currentStep === 2) answers.vousy = a;
+      if (currentStep === 3) answers.styl = a;
+
+      goToStep(currentStep + 1);
+    });
+  });
+
+  function goToStep(step) {
+    steps.forEach(s=>s.classList.remove('active'));
+    const next = modal.querySelector(`.step[data-step="${step}"]`);
+    if (!next) return;
+    next.classList.add('active');
+    updateProgress(step);
+
+    if(step===4) showResult();
+    currentStep = step;
+  }
+
+  function updateProgress(step){
+    const bars = modal.querySelectorAll('.progress span');
+    bars.forEach((bar,i)=>bar.classList.toggle('active', i<step-1));
+  }
+
+  function showResult(){
+    let service = null;
+
+    if (answers.vousy==='plne') service=services.combo;
+    if (answers.vousy==='kratke') service=services.combo;
+    if (answers.vousy==='zadne'){
+      if (answers.styl==='street') service=services.skinfade;
+      if (answers.styl==='classic'||answers.styl==='clean') service=services.classic;
+    }
+    if (answers.vousy==='plne' && answers.styl==='classic') service=services.full;
+    if (!service) service=services.classic;
+
+    const isMobile = window.innerWidth<768;
+
+    if(isMobile){
+      resultText.innerHTML = `
+        <strong><i data-lucide="scissors" class="icon"></i> ${service.name}</strong><br>
+        <span style="font-size:14px;color:#888">${service.desc}</span><br><br>
+        <a href="tel:${PHONE_NUMBER}" class="cta">
+          <i data-lucide="phone" class="icon"></i> Objednat
+        </a>
+      `;
+    } else {
+      resultText.innerHTML = `
+        <strong><i data-lucide="scissors" class="icon"></i> ${service.name}</strong><br>
+        <span style="font-size:14px;color:#888">${service.desc}</span><br><br>
+        <span style="font-size:16px;color:#c9a45c;font-weight:bold;">
+          Tel: ${PHONE_NUMBER}
+        </span>
+      `;
+    }
+
+    if(typeof lucide!=='undefined') lucide.replace();
+  }
+
+  function resetGuide(){
+    currentStep=1;
+    Object.keys(answers).forEach(k=>answers[k]=null);
+    steps.forEach(s=>s.classList.remove('active'));
+    modal.querySelector('.step[data-step="1"]').classList.add('active');
+    updateProgress(1);
+    resultText.innerHTML='';
+  }
+
+});
+
+
