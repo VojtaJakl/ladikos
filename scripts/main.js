@@ -38,8 +38,12 @@ const erasingSpeed = 50;
 const pauseAfterTyping = 2000;  
 
 function typeSlogan() {
+  // bezpečnostní kontrola
+  if(!sloganEl) return;
+
+  if(charIndex === 0) sloganEl.textContent = ''; // vždy čistíme na začátku
   if(charIndex < slogans[currentIndex].length){
-    sloganEl.textContent += slogans[currentIndex].charAt(charIndex);
+    sloganEl.textContent += slogans[currentIndex][charIndex];
     charIndex++;
     setTimeout(typeSlogan, typingSpeed);
   } else {
@@ -48,49 +52,26 @@ function typeSlogan() {
 }
 
 function eraseSlogan(){
+  if(!sloganEl) return;
+
   if(charIndex > 0){
-    sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
     charIndex--;
+    sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
     setTimeout(eraseSlogan, erasingSpeed);
   } else {
-    
+    // fade-out jen vizuálně
     sloganEl.classList.add('fade-out');
     setTimeout(()=>{
-      currentIndex = (currentIndex + 1) % slogans.length;
-      charIndex = 0; 
       sloganEl.classList.remove('fade-out');
-      sloganEl.textContent = ''; 
-      typeSlogan(); 
+      currentIndex = (currentIndex + 1) % slogans.length;
+      charIndex = 0; // reset indexu před startem dalšího sloganu
+      typeSlogan();
     }, 500);
   }
 }
 
 // START
 if(sloganEl){
-  sloganEl.textContent = '';
-  charIndex = 0;
-  currentIndex = 0;
-  typeSlogan();
-}
-
-function eraseSlogan(){
-  if(charIndex > 0){
-    sloganEl.textContent = slogans[currentIndex].substring(0, charIndex); // <--- fix
-    charIndex--;
-    setTimeout(eraseSlogan, erasingSpeed);
-  } else {
-    sloganEl.classList.add('fade-out');
-    setTimeout(()=>{
-      currentIndex = (currentIndex + 1) % slogans.length;
-      sloganEl.classList.remove('fade-out');
-      charIndex = 0; // reset charIndex
-      setTimeout(typeSlogan, 300);
-    }, 500);
-  }
-}
-
-if(sloganEl){
-  sloganEl.textContent = '';
   charIndex = 0;
   currentIndex = 0;
   typeSlogan();
@@ -286,6 +267,7 @@ if(sloganEl){
   }
 
 });
+
 
 
 
