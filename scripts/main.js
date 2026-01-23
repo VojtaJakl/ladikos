@@ -150,20 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkOpenStatus();
   setInterval(checkOpenStatus, 60000);
 
-  // ===== SNOWFLAKES =====
-  function createSnowflake(){
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.textContent='❄';
-    const size = Math.random()*20+10;
-    snowflake.style.fontSize = size+'px';
-    snowflake.style.left = Math.random()*window.innerWidth+'px';
-    const duration = Math.random()*5+3;
-    snowflake.style.animationDuration = duration+'s';
-    document.body.appendChild(snowflake);
-    setTimeout(()=>snowflake.remove(), duration*1000);
-  }
-  setInterval(createSnowflake,150);
+ 
 
   // ===== HAIR GUIDE MODAL =====
   const modal = document.getElementById('hairGuideModal');
@@ -269,6 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
