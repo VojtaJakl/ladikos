@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  
+  // ---------- NAVIGACE ----------
   const toggle = document.querySelector(".nav-toggle");
   const navList = document.querySelector(".nav-list");
   const nav = document.querySelector("nav");
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 
-  
+  // ---------- DYNAMIC SLOGAN ----------
   const slogans = [
     "Tvůj styl. Naše vášeň.",
     "Není to jen o vlasech.",
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     typeSlogan();
   }
 
- 
+  // ---------- LIGHTBOX ----------
   const galleryImages = document.querySelectorAll('.gallery-grid img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(e.key==='ArrowRight') lightboxNext.click();
   });
 
-  
+  // ---------- OPEN STATUS ----------
   function checkOpenStatus() {
     const statusEl = document.getElementById('open-status');
     const iconEl = document.querySelector('.is-open-row i');
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkOpenStatus();
   setInterval(checkOpenStatus, 60000);
 
-  
+  // ---------- HAIR GUIDE MODAL ----------
   const modal = document.getElementById('hairGuideModal');
   const openBtn = document.getElementById('openGuide');
   const closeBtn = modal ? modal.querySelector('.close') : null;
@@ -205,14 +205,6 @@ document.addEventListener("DOMContentLoaded", () => {
       bars.forEach((bar,i)=>bar.classList.toggle('active', i<step-1));
     }
 
-    
-    async function loadLucide() {
-      const module = await import('https://cdn.jsdelivr.net/npm/lucide@latest/dist/esm/lucide.js');
-      const { lucide, instagram, facebook, scissors, phone } = module;
-      lucide.add([instagram, facebook, scissors, phone]);
-      lucide.replace();
-    }
-
     function showResult(){
       let service = null;
       if(answers.vousy==='plne') service=services.combo;
@@ -243,7 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }
 
-      loadLucide(); 
+      // Nahradí všechny <i> a <span> s data-lucide
+      if(typeof lucide !== 'undefined') lucide.replace();
     }
 
     function resetGuide(){
@@ -270,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-
 
 
 
