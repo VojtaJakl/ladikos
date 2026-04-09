@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
+
+  // ---------- NAVIGACE ----------
   const toggle = document.querySelector(".nav-toggle");
   const navList = document.querySelector(".nav-list");
   const nav = document.querySelector("nav");
@@ -24,63 +25,57 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 
-  
-const slogans = [
-  "Tvůj styl. Naše vášeň.",
-  "Není to jen o vlasech.",
-  "Vždy o krok napřed."
-];
+  // ---------- DYNAMIC SLOGAN ----------
+  const slogans = [
+    "Tvůj styl. Naše vášeň.",
+    "Není to jen o vlasech.",
+    "Vždy o krok napřed."
+  ];
 
-const sloganEl = document.getElementById('dynamic-slogan');
-let currentIndex = 0;
-let charIndex = 0;
-const typingSpeed = 100;  
-const erasingSpeed = 70;  
-const pauseAfterTyping = 2000;  
+  const sloganEl = document.getElementById('dynamic-slogan');
+  let currentIndex = 0;
+  let charIndex = 0;
+  const typingSpeed = 100;  
+  const erasingSpeed = 70;  
+  const pauseAfterTyping = 2000;  
 
-if (sloganEl && !window.sloganTypingStarted) {
-  window.sloganTypingStarted = true;
+  if (sloganEl && !window.sloganTypingStarted) {
+    window.sloganTypingStarted = true;
+    sloganEl.textContent = '';
+    sloganEl.style.transition = 'opacity 0.3s';
+    sloganEl.style.opacity = 1;
 
-  // zajistí čistý start
-  sloganEl.textContent = '';
-  sloganEl.style.transition = 'opacity 0.3s';
-  sloganEl.style.opacity = 1;
-
-  function typeSlogan() {
-    if (charIndex < slogans[currentIndex].length) {
-      sloganEl.textContent += slogans[currentIndex][charIndex];
-      charIndex++;
-      setTimeout(typeSlogan, typingSpeed);
-    } else {
-      setTimeout(eraseSlogan, pauseAfterTyping);
+    function typeSlogan() {
+      if (charIndex < slogans[currentIndex].length) {
+        sloganEl.textContent += slogans[currentIndex][charIndex];
+        charIndex++;
+        setTimeout(typeSlogan, typingSpeed);
+      } else {
+        setTimeout(eraseSlogan, pauseAfterTyping);
+      }
     }
+
+    function eraseSlogan() {
+      if (charIndex > 0) {
+        charIndex--;
+        sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
+        setTimeout(eraseSlogan, erasingSpeed);
+      } else {
+        sloganEl.style.opacity = 0;
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % slogans.length;
+          charIndex = 0;
+          sloganEl.textContent = '';
+          sloganEl.style.opacity = 1; 
+          typeSlogan();
+        }, 300); 
+      }
+    }
+
+    typeSlogan();
   }
 
-  function eraseSlogan() {
-    if (charIndex > 0) {
-      charIndex--;
-      sloganEl.textContent = slogans[currentIndex].substring(0, charIndex);
-      setTimeout(eraseSlogan, erasingSpeed);
-    } else {
-      
-      sloganEl.style.opacity = 0;
-      setTimeout(() => {
-        
-        currentIndex = (currentIndex + 1) % slogans.length;
-        charIndex = 0;
-        sloganEl.textContent = '';
-        sloganEl.style.opacity = 1; 
-        typeSlogan();
-      }, 300); 
-    }
-  }
-
-  // START
-  typeSlogan();
-}
-
-
-  
+  // ---------- LIGHTBOX ----------
   const galleryImages = document.querySelectorAll('.gallery-grid img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -137,7 +132,7 @@ if (sloganEl && !window.sloganTypingStarted) {
     if(e.key==='ArrowRight') lightboxNext.click();
   });
 
- 
+  // ---------- OPEN STATUS ----------
   function checkOpenStatus() {
     const statusEl = document.getElementById('open-status');
     const iconEl = document.querySelector('.is-open-row i');
@@ -163,9 +158,7 @@ if (sloganEl && !window.sloganTypingStarted) {
   checkOpenStatus();
   setInterval(checkOpenStatus, 60000);
 
- 
-
-  
+  // ---------- HAIR GUIDE MODAL ----------
   const modal = document.getElementById('hairGuideModal');
   const openBtn = document.getElementById('openGuide');
   const closeBtn = modal ? modal.querySelector('.close') : null;
@@ -212,6 +205,14 @@ if (sloganEl && !window.sloganTypingStarted) {
       bars.forEach((bar,i)=>bar.classList.toggle('active', i<step-1));
     }
 
+    // ---------- LUCIDE ICONS ----------
+    async function loadLucide() {
+      const module = await import('https://cdn.jsdelivr.net/npm/lucide@latest/dist/esm/lucide.js');
+      const { lucide, instagram, facebook, scissors, phone } = module;
+      lucide.add([instagram, facebook, scissors, phone]);
+      lucide.replace();
+    }
+
     function showResult(){
       let service = null;
       if(answers.vousy==='plne') service=services.combo;
@@ -242,7 +243,7 @@ if (sloganEl && !window.sloganTypingStarted) {
         `;
       }
 
-      if(typeof lucide!=='undefined') lucide.replace();
+      loadLucide(); // nahradí všechny <i data-lucide="..."> ikonky
     }
 
     function resetGuide(){
@@ -269,7 +270,6 @@ if (sloganEl && !window.sloganTypingStarted) {
   }
 
 });
-
 
 
 
