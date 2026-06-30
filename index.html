@@ -400,6 +400,14 @@
 </div>
 
 <script src="scripts/main.js"></script>
-<script defer async src="https://cdn.trustindex.io/loader.js?689783d7520d43849456e1afbd4"></script>
+<script>
+window.addEventListener("load", function () {
+  const script = document.createElement("script");
+  script.src = "https://cdn.trustindex.io/loader.js?689783d7520d43849456e1afbd4";
+  script.defer = true;
+  script.async = true;
+  document.getElementById("reviews-widget").appendChild(script);
+});
+</script>
 </body>
 </html>
