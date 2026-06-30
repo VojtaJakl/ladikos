@@ -473,7 +473,29 @@ header {
   color: #33ccff;
 }
 
+.reviews {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0b1a2a, #102a44);
+  border-top: 1px solid #33ccff55;
+  border-bottom: 1px solid #33ccff33;
+  position: relative;
+}
 
+#reviews-widget,
+.ti-widget {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.reviews::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, #33ccff22, transparent 60%);
+  pointer-events: none;
+}
 
 .reviews .about-header {
   display: flex;
